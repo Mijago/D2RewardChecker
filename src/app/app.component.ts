@@ -124,6 +124,11 @@ export class AppComponent implements OnInit {
       return;
     }
 
+    if (!result.Response.profileCollectibles.data) {
+      this.errorMessage = "The API did not return any collectibles for this account. Privacy setting?"
+      return;
+    }
+
     var c = result.Response.profileCollectibles.data.collectibles;
     var k = Object.keys(c);
 
