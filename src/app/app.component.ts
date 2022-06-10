@@ -4,6 +4,7 @@ import {FormControl} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {catchError, debounceTime, switchMap, tap} from "rxjs/operators";
 import {Observable, of} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 interface GuardianInfo {
@@ -44,7 +45,7 @@ export class AppComponent implements OnInit {
   errorMessage: string = "";
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
   }
 
   resetCodeStates() {
@@ -85,8 +86,6 @@ export class AppComponent implements OnInit {
         previousValue[key] = currentValue;
         return previousValue;
       }, {} as { [name: string]: any })
-
-    console.log("users", userMap)
     return Object.keys(userMap).map(function (key: any) {
       return userMap[key];
     });
@@ -136,5 +135,9 @@ export class AppComponent implements OnInit {
     }
 
     return of(null);
+  }
+
+  public copied(code: string) {
+    this._snackBar.open("Copied the code " + code + " to the clipboard.");
   }
 }

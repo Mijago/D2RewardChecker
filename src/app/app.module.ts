@@ -12,6 +12,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
 import {MatChipsModule} from "@angular/material/chips";
+import {ClipboardModule} from "@angular/cdk/clipboard";
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {MatChipsModule} from "@angular/material/chips";
     FormsModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSnackBarModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

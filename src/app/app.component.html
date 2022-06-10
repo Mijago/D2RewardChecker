@@ -42,7 +42,7 @@
       <mat-card>
         <mat-card-title>What to do?</mat-card-title>
         <mat-card-content>
-          Head to <a href="https://www.bungie.net/7/en/codes/redeem">the code redemption page</a> and enter the codes that you are missing!<br>
+          Head to <a href="https://www.bungie.net/7/en/codes/redeem" target="_blank">the code redemption page</a> and enter the codes that you are missing!<br>
           Have fun with it.<br>
           <br>
           Last Update: Jun 10, 2022
@@ -65,7 +65,7 @@
           <mat-card-title>
             {{code.name}}
           </mat-card-title>
-          <mat-card-subtitle>
+          <mat-card-subtitle (cdkCopyToClipboardCopied)="copied(code.code)" [cdkCopyToClipboard]="code.code">
             {{code.code}}
           </mat-card-subtitle>
         </mat-card-header>
