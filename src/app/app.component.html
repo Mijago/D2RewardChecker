@@ -59,12 +59,15 @@
                 [class.state-unknown]="code.state == 0"
                 [class.state-rewarded]="code.state == 1"
                 [class.state-not-rewarded]="code.state == 2">
-        <mat-card-title>
-          {{code.name}}
-        </mat-card-title>
-        <mat-card-subtitle>
-          {{code.code}}
-        </mat-card-subtitle>
+        <mat-card-header>
+          <div mat-card-avatar class="card-icon"  style="  background-image: url('{{code.shortIconUrl}}');  "></div>
+          <mat-card-title>
+            {{code.name}}
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{code.code}}
+          </mat-card-subtitle>
+        </mat-card-header>
         <mat-card-footer *ngIf="code.wideIconUrl">
           <img src="{{code.wideIconUrl}}" class="reward-imag-wide">
         </mat-card-footer>

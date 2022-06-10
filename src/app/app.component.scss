@@ -41,3 +41,12 @@ mat-chip.selected {
 a  {
   color: #c72e6a;
 }
+
+.card-icon {
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 0;
+}
