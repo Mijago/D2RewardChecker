@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {CodeInfo, Codes} from './data/codes';
 import {FormControl} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {debounceTime, switchMap, tap} from "rxjs/operators";
+import {catchError, debounceTime, switchMap, tap} from "rxjs/operators";
+import {Observable, of} from "rxjs";
 
 
 interface GuardianInfo {
@@ -38,17 +39,20 @@ export class AppComponent implements OnInit {
   guardianSearchFormControl = new FormControl();
   users: GuardianInfo[] = [];
 
-  currentUserMembershipId : number = 0;
+  currentUserMembershipId: number = 0;
+  errorMessage: string = "";
 
 
   constructor(private http: HttpClient) {
   }
+
   resetCodeStates() {
     this.Codes = Codes.sort((a, b) => a.name > b.name ? 1 : -1)
       .map(code => {
         return Object.assign({state: State.Unknown}, code)
       })
   }
+
   ngOnInit(): void {
     this.resetCodeStates()
 
@@ -63,38 +67,38 @@ export class AppComponent implements OnInit {
       return [];
 
     const url = "https://elastic.destinytrialsreport.com/players/0/" + encodeURIComponent(name);
-    const users = await this.http.get<GuardianInfo[]>(url)
+    let users = await this.http.get<GuardianInfo[]>(url)
       .pipe(
         tap(_ => console.log('fetched characters')),
         //catchError(this.handleError<GuardianInfo[]>('searchUsers'))
       ).toPromise();
+
+    users= users.sort((a,b) => a.lastPlayed > b.lastPlayed ? 1 : 0).slice(0, 10)
 
     console.log("users", users)
     return users;
   }
 
   async filterCollectibles(membershipType: number, membershipId: number) {
+    this.errorMessage = "";
     this.resetCodeStates();
 
     this.currentUserMembershipId = membershipId;
     const url = `https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/?components=800`;
     const result = await this.http.get<any>(url, {
       headers: {"X-API-Key": "d740f7aa26874fd59aa0a09ce0c47fd6"}
-    })
-      .pipe(
-        tap(_ => console.log('fetched collectibles')),
-        //catchError(this.handleError<GuardianInfo[]>('searchUsers'))
-      ).toPromise();
-    console.warn("result", result)
+    }).pipe(
+      tap(_ => console.log('fetched collectibles')),
+      catchError(e => this.handleError(e))
+    ).toPromise();
+    if (!result)
+      return;
 
     var c = result.Response.profileCollectibles.data.collectibles;
-    console.warn("c", c)
     var k = Object.keys(c);
 
 
-
     this.Codes.forEach(code => {
-      console.log(k.indexOf(code.collectibleHash.toString()))
       if (k.indexOf(code.collectibleHash.toString()) == -1)
         code.state = State.Unknown;
       else {
@@ -106,5 +110,18 @@ export class AppComponent implements OnInit {
       }
 
     })
+  }
+
+  private handleError(error: any): Observable<any> {
+    console.error("ERROR", error)
+
+    if (error.ErrorCode == 1601) {
+      // account not found
+      this.errorMessage = "Sorry, the Bungie API did not return information for this account."
+    } else {
+      this.errorMessage = "Sorry, could not grab information for this account."
+    }
+
+    return of(null);
   }
 }

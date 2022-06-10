@@ -29,6 +29,11 @@
               {{user.bungieName}}
             </mat-chip>
           </mat-chip-list>
+
+          <mat-toolbar color="warn" *ngIf="errorMessage != ''" class="error-bar">
+            {{errorMessage}}
+          </mat-toolbar>
+
         </mat-card-content>
       </mat-card>
     </div>
