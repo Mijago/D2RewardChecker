@@ -13,6 +13,7 @@ interface GuardianInfo {
   membershipId: number;
   membershipType: number;
   emblemHash: string;
+  crossSaveOverride: any;
   score: number;
   lastPlayed: string;
 
@@ -73,10 +74,22 @@ export class AppComponent implements OnInit {
         //catchError(this.handleError<GuardianInfo[]>('searchUsers'))
       ).toPromise();
 
-    users= users.sort((a,b) => a.lastPlayed > b.lastPlayed ? 1 : 0).slice(0, 10)
+    var userMap = users
+      .sort((a, b) => a.lastPlayed > b.lastPlayed ? 1 : 0)
+      .slice(0, 10)
+      .reduce((previousValue, currentValue, currentIndex) => {
+        var key = currentValue.membershipId + "-" + currentValue.membershipType;
+        if (currentValue.crossSaveOverride.membershipId != "")
+          key = currentValue.crossSaveOverride.membershipId + "-" + currentValue.crossSaveOverride.membershipType;
+        if (previousValue[key]) return previousValue;
+        previousValue[key] = currentValue;
+        return previousValue;
+      }, {} as { [name: string]: any })
 
-    console.log("users", users)
-    return users;
+    console.log("users", userMap)
+    return Object.keys(userMap).map(function (key: any) {
+      return userMap[key];
+    });
   }
 
   async filterCollectibles(membershipType: number, membershipId: number) {
