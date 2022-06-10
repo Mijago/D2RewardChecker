@@ -76,7 +76,7 @@ export class AppComponent implements OnInit {
       ).toPromise();
 
     var userMap = users
-      .sort((a, b) => a.lastPlayed > b.lastPlayed ? 1 : 0)
+      .sort((a, b) => Date.parse(a.lastPlayed) > Date.parse(b.lastPlayed) ? 1 : 0)
       .slice(0, 10)
       .reduce((previousValue, currentValue, currentIndex) => {
         var key = currentValue.membershipId + "-" + currentValue.membershipType;
