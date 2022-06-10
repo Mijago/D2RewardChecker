@@ -67,8 +67,8 @@
           </mat-card-title>
           <mat-card-subtitle (cdkCopyToClipboardCopied)="copied(code.code)" [cdkCopyToClipboard]="code.code">
             <span class="clipboard-text">{{code.code}}</span>
-            <span *ngIf="code.state == 1"> - aquired</span>
-            <span *ngIf="code.state == 2"> - not aquired</span>
+            <span *ngIf="code.state == 1"> - acquired</span>
+            <span *ngIf="code.state == 2"> - not acquired</span>
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-footer *ngIf="code.wideIconUrl">
