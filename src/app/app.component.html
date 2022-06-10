@@ -55,7 +55,7 @@
 
 
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let code of Codes">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.md="33%" fxFlex.sm="50%" *ngFor="let code of Codes">
       <mat-card class="reward-card mat-elevation-z4"
                 [class.state-unknown]="code.state == 0"
                 [class.state-rewarded]="code.state == 1"
@@ -67,6 +67,8 @@
           </mat-card-title>
           <mat-card-subtitle (cdkCopyToClipboardCopied)="copied(code.code)" [cdkCopyToClipboard]="code.code">
             <span class="clipboard-text">{{code.code}}</span>
+            <span *ngIf="code.state == 1"> - aquired</span>
+            <span *ngIf="code.state == 2"> - not aquired</span>
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-footer *ngIf="code.wideIconUrl">

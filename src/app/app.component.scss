@@ -29,11 +29,11 @@ mat-chip.selected {
 
 .reward-card.state-rewarded {
   color: #019801;
-  opacity: 0.55;
 }
 
 .reward-card.state-not-rewarded {
   color: red;
+  border: red 3px solid;
   background-color: #543535;
 }
 
