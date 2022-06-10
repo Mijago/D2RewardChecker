@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatChipsModule} from "@angular/material/chips";
 import {ClipboardModule} from "@angular/cdk/clipboard";
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
     ReactiveFormsModule,
     MatChipsModule,
     MatSnackBarModule,
-    ClipboardModule
+    ClipboardModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

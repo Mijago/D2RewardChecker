@@ -45,6 +45,8 @@ export class AppComponent implements OnInit {
   currentUserMembershipId: number = 0;
   errorMessage: string = "";
 
+  public loading: boolean = false;
+
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
   }
@@ -68,6 +70,7 @@ export class AppComponent implements OnInit {
   async searchUsers(name: string) {
     if (name == "")
       return [];
+    this.loading = true;
 
     const url = "https://elastic.destinytrialsreport.com/players/0/" + encodeURIComponent(name);
     let users = await this.http.get<GuardianInfo[]>(url)
@@ -91,12 +94,15 @@ export class AppComponent implements OnInit {
         previousValue[key] = currentValue;
         return previousValue;
       }, {} as { [name: string]: any })
+
+    this.loading = false;
     return Object.keys(userMap).map(function (key: any) {
       return userMap[key];
     });
   }
 
   async filterCollectibles(membershipType: number, membershipId: number) {
+    this.loading = true;
     this.errorMessage = "";
     this.resetCodeStates();
 
@@ -108,8 +114,10 @@ export class AppComponent implements OnInit {
       tap(_ => console.log('fetched collectibles')),
       catchError(e => this.handleError(e))
     ).toPromise();
-    if (!result)
+    if (!result) {
+      this.loading = false;
       return;
+    }
 
     var c = result.Response.profileCollectibles.data.collectibles;
     var k = Object.keys(c);
@@ -125,8 +133,8 @@ export class AppComponent implements OnInit {
         else
           code.state = State.NotRewarded;
       }
-
     })
+    this.loading = false;
   }
 
   private handleError(error: any): Observable<any> {

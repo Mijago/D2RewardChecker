@@ -1,3 +1,10 @@
+#progressbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 mat-toolbar {
   justify-content: space-between;
   background-color: #212121;
@@ -15,11 +22,12 @@ mat-toolbar {
 .guardianSearch {
   margin-bottom: 16px;
 }
+
 .infoBox {
   margin-bottom: 16px;
 }
 
-.error-bar{
+.error-bar {
   height: 30px;
 }
 
@@ -46,12 +54,13 @@ mat-chip.selected {
 
 .reward-card {
   margin-bottom: 16px;
+
   .reward-imag-wide {
     width: 100%;
   }
 }
 
-a  {
+a {
   color: #c72e6a;
 }
 
