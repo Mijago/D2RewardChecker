@@ -66,7 +66,7 @@
             {{code.name}}
           </mat-card-title>
           <mat-card-subtitle (cdkCopyToClipboardCopied)="copied(code.code)" [cdkCopyToClipboard]="code.code">
-            {{code.code}}
+            <span class="clipboard-text">{{code.code}}</span>
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-footer *ngIf="code.wideIconUrl">
