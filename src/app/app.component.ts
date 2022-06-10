@@ -85,11 +85,16 @@ export class AppComponent implements OnInit {
         let d2 = moment(b.lastPlayed, "YYYY-MM-DDTHH:mm:ss:SSSZ").fromNow();
         return d1 > d2 ? 1 : 0;
       })
-      .slice(0, 10)
       .reduce((previousValue, currentValue, currentIndex) => {
         var key = currentValue.membershipId + "-" + currentValue.membershipType;
-        if (currentValue.crossSaveOverride.membershipId != "")
-          key = currentValue.crossSaveOverride.membershipId + "-" + currentValue.crossSaveOverride.membershipType;
+        if (currentValue.crossSaveOverride.membershipId != "") {
+          if (currentValue.crossSaveOverride.membershipId != currentValue.membershipId
+            && currentValue.crossSaveOverride.membershipType != currentValue.membershipType)
+            return previousValue;
+          else {
+            key = currentValue.crossSaveOverride.membershipId + "-" + currentValue.crossSaveOverride.membershipType
+          }
+        }
         if (previousValue[key]) return previousValue;
         previousValue[key] = currentValue;
         return previousValue;
@@ -98,7 +103,7 @@ export class AppComponent implements OnInit {
     this.loading = false;
     return Object.keys(userMap).map(function (key: any) {
       return userMap[key];
-    });
+    }).slice(0, 10);
   }
 
   async filterCollectibles(membershipType: number, membershipId: number) {
@@ -134,6 +139,17 @@ export class AppComponent implements OnInit {
           code.state = State.NotRewarded;
       }
     })
+    /*
+    this.Codes.sort((a,b) => {
+      if (a.state > b.state)
+        return -1;
+      if (a.state < b.state)
+        return 1;
+      if (a.name < b.name)
+        return -1;
+      else return 1;
+    })*/
+
     this.loading = false;
   }
 
