@@ -25,7 +25,7 @@
             <mat-label>Guardian Tag</mat-label>
             <input matInput type="text" placeholder="Guardian#1234" [formControl]="guardianSearchFormControl">
             <button *ngIf="guardianSearchFormControl.value != ''" matSuffix mat-icon-button aria-label="Clear"
-                    (click)="guardianSearchFormControl.reset()">
+                    (click)="guardianSearchFormControl.setValue('')">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
