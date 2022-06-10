@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {catchError, debounceTime, switchMap, tap} from "rxjs/operators";
 import {Observable, of} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import * as moment from 'moment';
 
 
 interface GuardianInfo {
@@ -76,7 +77,11 @@ export class AppComponent implements OnInit {
       ).toPromise();
 
     var userMap = users
-      .sort((a, b) => Date.parse(a.lastPlayed) > Date.parse(b.lastPlayed) ? 1 : 0)
+      .sort((a, b) => {
+        let d1 = moment(a.lastPlayed, "YYYY-MM-DDTHH:mm:ss:SSSZ").fromNow();
+        let d2 = moment(b.lastPlayed, "YYYY-MM-DDTHH:mm:ss:SSSZ").fromNow();
+        return d1 > d2 ? 1 : 0;
+      })
       .slice(0, 10)
       .reduce((previousValue, currentValue, currentIndex) => {
         var key = currentValue.membershipId + "-" + currentValue.membershipType;

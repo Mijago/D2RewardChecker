@@ -5,7 +5,7 @@
 
 
 <div class="content">
-  <div fxLayout="row wrap" fxLayoutGap="16px grid" >
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
     <div class="guardianSearch" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
       <mat-card>
         <mat-card-title>
@@ -13,7 +13,8 @@
         </mat-card-title>
         <mat-card-subtitle>
           You can search for a guardian here. The tool will then show which of the items are unlocked in the collection.
-          Note that the API only sees an emblem as unlocked <b>when you pulled it out of the collection at least once</b>.
+          Note that the API only sees an emblem as unlocked <b>when you pulled it out of the collection at least
+          once</b>.
         </mat-card-subtitle>
         <mat-card-content>
           <mat-form-field class="example-form-field" appearance="fill">
@@ -28,6 +29,16 @@
             <mat-chip *ngFor="let user of users" (click)="filterCollectibles(user.membershipType, user.membershipId)"
                       [class.selected]="user.membershipId == currentUserMembershipId">
               {{user.bungieName}}
+              <mat-chip-trailing-icon>
+                <img class="user-chip-icon" src="https://bungie.net//img/theme/bungienet/icons/steamLogo.png"
+                     *ngIf="user.membershipType == 3">
+                <img class="user-chip-icon" src="https://bungie.net//img/theme/bungienet/icons/xboxLiveLogo.png"
+                     *ngIf="user.membershipType ==1">
+                <img class="user-chip-icon" src="https://bungie.net//img/theme/bungienet/icons/psnLogo.png.png"
+                     *ngIf="user.membershipType == 2">
+                <img class="user-chip-icon" src="https://bungie.net//img/theme/destiny/icons/icon_stadia.png"
+                     *ngIf="user.membershipType == 5">
+              </mat-chip-trailing-icon>
             </mat-chip>
           </mat-chip-list>
 
@@ -38,11 +49,12 @@
         </mat-card-content>
       </mat-card>
     </div>
-    <div class="infoBox" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" >
+    <div class="infoBox" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
       <mat-card>
         <mat-card-title>What to do?</mat-card-title>
         <mat-card-content>
-          Head to <a href="https://www.bungie.net/7/en/codes/redeem" target="_blank">the code redemption page</a> and enter the codes that you are missing!<br>
+          Head to <a href="https://www.bungie.net/7/en/codes/redeem" target="_blank">the code redemption page</a> and
+          enter the codes that you are missing!<br>
           Have fun with it.<br>
           <br>
           Last Update: Jun 10, 2022
@@ -61,7 +73,7 @@
                 [class.state-rewarded]="code.state == 1"
                 [class.state-not-rewarded]="code.state == 2">
         <mat-card-header>
-          <div mat-card-avatar class="card-icon"  style="  background-image: url('{{code.shortIconUrl}}');  "></div>
+          <div mat-card-avatar class="card-icon" style="  background-image: url('{{code.shortIconUrl}}');  "></div>
           <mat-card-title>
             {{code.name}}
           </mat-card-title>
