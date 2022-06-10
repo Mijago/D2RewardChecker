@@ -138,6 +138,8 @@ export class AppComponent implements OnInit {
   }
 
   public copied(code: string) {
-    this._snackBar.open("Copied the code " + code + " to the clipboard.");
+    this._snackBar.open("Copied the code " + code + " to the clipboard.", "Thanks!", {
+      duration: 3000
+    });
   }
 }
