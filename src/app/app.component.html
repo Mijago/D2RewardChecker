@@ -79,9 +79,13 @@
         <mat-card-header>
           <div mat-card-avatar class="card-icon" style="  background-image: url('{{code.shortIconUrl}}');  "></div>
           <mat-card-title>
-            {{code.name}}
+            <a href="https://destinyemblemcollector.com/emblem?id={{code.itemHash}}"
+               target="_blank"
+               title="Open '{{code.name}}' in destinyemblemcollector.com"
+            >{{code.name}}</a>
           </mat-card-title>
-          <mat-card-subtitle (cdkCopyToClipboardCopied)="copied(code.code)" [cdkCopyToClipboard]="code.code">
+          <mat-card-subtitle (cdkCopyToClipboardCopied)="copied(code.code)" [cdkCopyToClipboard]="code.code"
+                             title="Click to copy this code to your clipboard.">
             <span class="clipboard-text">{{code.code}}</span>
             <span *ngIf="code.state == 1"> - acquired</span>
             <span *ngIf="code.state == 2"> - not acquired</span>

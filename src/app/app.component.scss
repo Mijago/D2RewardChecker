@@ -1,3 +1,7 @@
+a {
+  color: #c72e6a;
+}
+
 #progressbar {
   position: fixed;
   top: 0;
@@ -41,28 +45,38 @@ mat-chip.selected {
   cursor: pointer;
 }
 
-.reward-card.state-rewarded {
-  color: #019801;
-  opacity: 0.9;
-}
-
-.reward-card.state-not-rewarded {
-  color: red;
-  border: red 3px solid;
-  background-color: #543535;
-}
-
 .reward-card {
   margin-bottom: 16px;
 
   .reward-imag-wide {
     width: 100%;
   }
+
+  a {
+    color: white;
+  }
+
 }
 
-a {
-  color: #c72e6a;
+.reward-card.state-rewarded {
+  color: #019801;
+  opacity: 0.9;
+
+  a {
+    color: #019801;
+  }
 }
+
+.reward-card.state-not-rewarded {
+  color: red;
+  border: red 3px solid;
+  background-color: #543535;
+
+  a {
+    color: red;
+  }
+}
+
 
 .card-icon {
   background-size: cover;
