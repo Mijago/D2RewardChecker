@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
 
   currentUserMembershipId: number = 0;
   errorMessage: string = "";
+  filterCrossplay: boolean = true;
 
   public loading: boolean = false;
 
@@ -68,7 +69,8 @@ export class AppComponent implements OnInit {
   }
 
   async searchUsers(name: string) {
-    if (name == "")
+    console.log(name, !!name)
+    if (!name)
       return [];
     this.loading = true;
 
@@ -79,13 +81,18 @@ export class AppComponent implements OnInit {
         //catchError(this.handleError<GuardianInfo[]>('searchUsers'))
       ).toPromise();
 
-    var userMap = users
+    users = users
       .sort((a, b) => {
         let d1 = moment(a.lastPlayed, "YYYY-MM-DDTHH:mm:ss:SSSZ").fromNow();
         let d2 = moment(b.lastPlayed, "YYYY-MM-DDTHH:mm:ss:SSSZ").fromNow();
         return d1 > d2 ? 1 : 0;
       })
-      .reduce((previousValue, currentValue, currentIndex) => {
+
+    if (!this.filterCrossplay) {
+      this.loading = false;
+      return users;
+    }
+    let userMap =users.reduce((previousValue, currentValue, currentIndex) => {
         var key = currentValue.membershipId + "-" + currentValue.membershipType;
         if (currentValue.crossSaveOverride.membershipId != "") {
           if (currentValue.crossSaveOverride.membershipId != currentValue.membershipId
