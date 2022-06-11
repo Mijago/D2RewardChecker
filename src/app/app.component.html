@@ -71,7 +71,9 @@
 
 
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.md="33%" fxFlex.sm="50%" *ngFor="let code of Codes">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.md="33%" fxFlex.sm="50%"
+         [fxFlex.xl]="(100/6)+'%'"
+         *ngFor="let code of Codes">
       <mat-card class="reward-card mat-elevation-z4"
                 [class.state-unknown]="code.state == 0"
                 [class.state-rewarded]="code.state == 1"
