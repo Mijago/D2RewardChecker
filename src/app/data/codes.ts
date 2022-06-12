@@ -18,7 +18,7 @@ export const Codes: CodeInfo[] = [
     name: "Stag's Spirit",
     code: "T67-JXY-PH6",
     type: CodeType.EMBLEM,
-    itemHash: 3903070392,
+    itemHash: 1901885383,
     collectibleHash: 1939502753,
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/313b57876840092ef843be204a17a903.jpg",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/10fcff49483946a0653866eefdaa1293.jpg"
@@ -72,7 +72,7 @@ export const Codes: CodeInfo[] = [
     name: "Galilean Excursion",
     code: "JYN-JAA-Y7D",
     type: CodeType.EMBLEM,
-    itemHash: 3903070392,
+    itemHash: 2962058747,
     collectibleHash: 4137754753,
     shortIconUrl: "https://bungie.net/common/destiny2_content/icons/a9d3db19c2e2d9bf4bae84c9cb51f6ab.png",
     wideIconUrl: "https://bungie.net/common/destiny2_content/icons/3e99d575d00fb307c15fb5513dee13c6.jpg"
