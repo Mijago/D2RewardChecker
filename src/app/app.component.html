@@ -34,6 +34,9 @@
             [(ngModel)]="filterCrossplay">
             Combine cross-play entries
           </mat-checkbox>
+          <div *ngIf="usedFallback">
+            There was an error in the API and we had to utilize the fallback logic. Please make sure to enter the full Bungie handle.
+          </div>
           <mat-chip-list>
             <mat-chip *ngFor="let user of users" (click)="filterCollectibles(user.membershipType, user.membershipId)"
                       [class.selected]="user.membershipId == currentUserMembershipId">

@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
   filterCrossplay: boolean = true;
 
   public loading: boolean = false;
+  public usedFallback: boolean = false;
 
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
@@ -74,11 +75,12 @@ export class AppComponent implements OnInit {
       return [];
     this.loading = true;
 
-    const url = "https://elastic.destinytrialsreport.com/players/0/" + encodeURIComponent(name);
+    this.usedFallback = false;
+    const url = "https://elastic.destinytrialsreport.com/players/0/" + encodeURIComponent(encodeURIComponent(name));
     let users = await this.http.get<GuardianInfo[]>(url)
       .pipe(
         tap(_ => console.log('fetched characters')),
-        //catchError(this.handleError<GuardianInfo[]>('searchUsers'))
+        catchError(this.handleTrialsReportUrlError(name))
       ).toPromise();
 
     users = users
@@ -92,20 +94,20 @@ export class AppComponent implements OnInit {
       this.loading = false;
       return users;
     }
-    let userMap =users.reduce((previousValue, currentValue, currentIndex) => {
-        var key = currentValue.membershipId + "-" + currentValue.membershipType;
-        if (currentValue.crossSaveOverride.membershipId != "") {
-          if (currentValue.crossSaveOverride.membershipId != currentValue.membershipId
-            && currentValue.crossSaveOverride.membershipType != currentValue.membershipType)
-            return previousValue;
-          else {
-            key = currentValue.crossSaveOverride.membershipId + "-" + currentValue.crossSaveOverride.membershipType
-          }
+    let userMap = users.reduce((previousValue, currentValue, currentIndex) => {
+      var key = currentValue.membershipId + "-" + currentValue.membershipType;
+      if (currentValue.crossSaveOverride.membershipId != "") {
+        if (currentValue.crossSaveOverride.membershipId != currentValue.membershipId
+          && currentValue.crossSaveOverride.membershipType != currentValue.membershipType)
+          return previousValue;
+        else {
+          key = currentValue.crossSaveOverride.membershipId + "-" + currentValue.crossSaveOverride.membershipType
         }
-        if (previousValue[key]) return previousValue;
-        previousValue[key] = currentValue;
-        return previousValue;
-      }, {} as { [name: string]: any })
+      }
+      if (previousValue[key]) return previousValue;
+      previousValue[key] = currentValue;
+      return previousValue;
+    }, {} as { [name: string]: any })
 
     this.loading = false;
     return Object.keys(userMap).map(function (key: any) {
@@ -183,5 +185,32 @@ export class AppComponent implements OnInit {
     this._snackBar.open("Copied the code " + code + " to the clipboard.", "Thanks!", {
       duration: 3000
     });
+  }
+
+  private handleTrialsReportUrlError(name: string) {
+    return async (p1: any, p2: Observable<GuardianInfo[]>) => {
+      this.usedFallback = true;
+      const url = `https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayer/-1/${encodeURIComponent(name)}/`;
+      let users = await this.http.get<any>(url, {
+        headers: {"X-API-Key": "d740f7aa26874fd59aa0a09ce0c47fd6"}
+      })
+        .pipe(
+          tap(_ => console.log('fetched FALLBACK characters', _)),
+        ).toPromise();
+
+      return (users.Response as any[]).map(u => {
+        let name = u.bungieGlobalDisplayName + "#" + u.bungieGlobalDisplayNameCode
+        return {
+          membershipId: u.membershipId,
+          membershipType: u.membershipType,
+          bungieName: name,
+          displayName: u.displayName,
+          crossSaveOverride: {
+            membershipId: '',
+            membershipType: u.crossSaveOverride,
+          }
+        } as GuardianInfo
+      });
+    };
   }
 }
