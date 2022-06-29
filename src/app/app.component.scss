@@ -44,6 +44,11 @@ mat-chip.selected {
   padding: 2px;
   cursor: pointer;
 }
+.clipboard-text-nopointer {
+  font-family: monospace, monospace;
+  background-color: #212121;
+  padding: 2px;
+}
 
 .reward-card {
   margin-bottom: 16px;
