@@ -35,7 +35,8 @@
             Combine cross-play entries
           </mat-checkbox>
           <div *ngIf="usedFallback">
-            There was an error in the API and we had to utilize the fallback logic. Please make sure to enter the full Bungie handle.
+            There was an error in the API and we had to utilize the fallback logic. Please make sure to enter the full
+            Bungie handle.
           </div>
           <mat-chip-list>
             <mat-chip *ngFor="let user of users" (click)="filterCollectibles(user.membershipType, user.membershipId)"
@@ -66,16 +67,20 @@
         <mat-card-title>What to do?</mat-card-title>
         <mat-card-content>
           <ol>
-            <li><a mat-raised-button color="primary" href="https://www.bungie.net/7/en/codes/redeem" target="_blank">Open the Code Redemption page</a></li>
+            <li><a mat-raised-button color="primary" href="https://www.bungie.net/7/en/codes/redeem" target="_blank">Open
+              the Code Redemption page</a></li>
             <li>Login.</li>
             <li>Enter every code you want to redeem.</li>
             <li>Re-Log into Destiny 2. If it is currently open, just restart it.</li>
-            <li>Head to <span class="clipboard-text-nopointer">Collection > Flair > Emblems > General</span> and grab your emblems!</li>
+            <li>Head to <span class="clipboard-text-nopointer">Collection > Flair > Emblems > General</span> and grab
+              your emblems!
+            </li>
           </ol>
           Also check out:
           <a href="https://d2armorpicker.com" target="_blank">D2ArmorPicker</a> and
           <a href="https://mijago.github.io/Crayon/" target="_blank">Crayon</a>.
-          If you like my work, feel free to support me <a href="https://ko-fi.com/mijago" target="_blank">with a ko-fi</a>.<br/>
+          If you like my work, feel free to support me <a href="https://ko-fi.com/mijago" target="_blank">with a
+          ko-fi</a>.<br/>
           Greetings, Mijago
 
         </mat-card-content>
@@ -127,10 +132,17 @@
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <div class="clipboard-text-nopointer">
-              <ng-container *ngFor="let code of Codes"><ng-container *ngIf="code.state == 2">
-                {{code.code}} - {{code.name}}<br>
-              </ng-container></ng-container>
+            <div class="clipboard-text-nopointer" *ngIf="unclaimedCodesCount > 0">
+              <ng-container *ngFor="let code of Codes">
+                <ng-container *ngIf="code.state == 2">
+                  {{code.code}} - {{code.name}}<br>
+                </ng-container>
+              </ng-container>
+              <br>
+              https://www.bungie.net/7/en/codes/redeem<br>
+            </div>
+            <div *ngIf="unclaimedCodesCount == 0">
+              All codes redeemed.
             </div>
           </mat-card-content>
         </mat-card>

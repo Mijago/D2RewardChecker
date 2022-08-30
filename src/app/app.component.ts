@@ -48,9 +48,14 @@ export class AppComponent implements OnInit {
 
   public loading: boolean = false;
   public usedFallback: boolean = false;
+  public unclaimedCodesCount: number = 0;
 
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
+  }
+
+  updateUnclaimedCodesCount() {
+    this.unclaimedCodesCount = this.Codes.filter(c => c.state == State.NotRewarded).length;
   }
 
   resetCodeStates() {
@@ -58,6 +63,7 @@ export class AppComponent implements OnInit {
       .map(code => {
         return Object.assign({state: State.Unknown}, code)
       })
+    this.unclaimedCodesCount = 0;
   }
 
   ngOnInit(): void {
@@ -164,7 +170,7 @@ export class AppComponent implements OnInit {
         return -1;
       else return 1;
     })*/
-
+    this.updateUnclaimedCodesCount();
     this.loading = false;
   }
 
