@@ -108,8 +108,12 @@
           <mat-card-subtitle (cdkCopyToClipboardCopied)="copied(code.code)" [cdkCopyToClipboard]="code.code"
                              title="Click to copy this code to your clipboard.">
             <span class="clipboard-text">{{code.code}}</span>
-            <span *ngIf="code.state == 1"> - acquired</span>
-            <span *ngIf="code.state == 2"> - not acquired</span>
+            <span *ngIf="code.state == 1">&nbsp;-&nbsp;acquired</span>
+            <span *ngIf="code.state == 2">&nbsp;-&nbsp;not acquired -
+              <a href="https://www.bungie.net/7/en/codes/redeem?token={{code.code}}" target="_blank">Redeem</a>
+            </span>
+
+
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-footer *ngIf="code.wideIconUrl">
