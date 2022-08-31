@@ -6,6 +6,7 @@ import {catchError, debounceTime, switchMap, tap} from "rxjs/operators";
 import {Observable, of} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import * as moment from 'moment';
+import {ActivationEnd, Router} from "@angular/router";
 
 
 interface GuardianInfo {
@@ -51,7 +52,7 @@ export class AppComponent implements OnInit {
   public unclaimedCodesCount: number = 0;
 
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router: Router) {
   }
 
   updateUnclaimedCodesCount() {
@@ -66,6 +67,10 @@ export class AppComponent implements OnInit {
     this.unclaimedCodesCount = 0;
   }
 
+  async resetUrl() {
+    await this.router.navigate(["/"]);
+  }
+
   ngOnInit(): void {
     this.resetCodeStates()
 
@@ -73,9 +78,51 @@ export class AppComponent implements OnInit {
       debounceTime(500),
       switchMap(changedValue => this.searchUsers(changedValue)),
     ).subscribe(users => this.users = users);
+
+    this.router.events.subscribe(async (k) => {
+      if (k instanceof ActivationEnd) {
+        let k1 = k as ActivationEnd;
+        let keys = Object.keys(k1.snapshot.params);
+        if (k1.snapshot.data["guardianLinked"] && keys.indexOf("membershipId") > -1 && keys.indexOf("membershipType") > -1) {
+          var membershipId = k1.snapshot.params["membershipId"]
+          var membershipType = k1.snapshot.params["membershipType"]
+          console.log("Update Guardian", membershipId, membershipType)
+
+          if (this.users.length == 0) {
+            this.getUser(membershipType, membershipId).then(us => {
+              if (us != null) {
+                try {
+                  this.users.push({
+                    crossSaveOverride: us["Response"]["profile"]["data"]["userInfo"]["crossSaveOverride"],
+                    membershipType: membershipType,
+                    membershipId: membershipId,
+                    displayName: us["Response"]["profile"]["data"]["userInfo"]["displayName"],
+                    bungieName: us["Response"]["profile"]["data"]["userInfo"]["bungieGlobalDisplayName"]
+                      + "#"
+                      + us["Response"]["profile"]["data"]["userInfo"]["bungieGlobalDisplayNameCode"],
+                  } as GuardianInfo)
+                } catch (e) {
+                  console.error("Could not parse userdata.", e)
+                }
+              }
+            })
+          }
+
+          this.filterCollectibles(membershipType, membershipId);
+        } else {
+          this.users = []
+          if (this.router.url != "/")
+            await this.resetUrl();
+          this.resetCodeStates();
+        }
+
+      }
+    })
+
   }
 
   async searchUsers(name: string) {
+    await this.resetUrl();
     console.log(name, !!name)
     if (!name)
       return [];
@@ -119,6 +166,20 @@ export class AppComponent implements OnInit {
     return Object.keys(userMap).map(function (key: any) {
       return userMap[key];
     }).slice(0, 10);
+  }
+
+  async navigate(membershipType: number, membershipId: number) {
+    await this.router.navigate([membershipType, membershipId])
+  }
+
+  async getUser(membershipType: number, membershipId: number) {
+    const url = `https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/?components=100`;
+    return await this.http.get<any>(url, {
+      headers: {"X-API-Key": "d740f7aa26874fd59aa0a09ce0c47fd6"}
+    }).pipe(
+      tap(_ => console.log(`fetched username for ${membershipType} ${membershipId}`)),
+      catchError(e => this.handleError(e))
+    ).toPromise();
   }
 
   async filterCollectibles(membershipType: number, membershipId: number) {

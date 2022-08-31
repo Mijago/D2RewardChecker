@@ -39,14 +39,14 @@
             Bungie handle.
           </div>
           <mat-chip-list>
-            <mat-chip *ngFor="let user of users" (click)="filterCollectibles(user.membershipType, user.membershipId)"
+            <mat-chip *ngFor="let user of users" (click)="navigate(user.membershipType, user.membershipId)"
                       [class.selected]="user.membershipId == currentUserMembershipId">
               {{user.bungieName}}
               <mat-chip-trailing-icon>
                 <img class="user-chip-icon" src="https://bungie.net//img/theme/bungienet/icons/steamLogo.png"
                      *ngIf="user.membershipType == 3">
                 <img class="user-chip-icon" src="https://bungie.net//img/theme/bungienet/icons/xboxLiveLogo.png"
-                     *ngIf="user.membershipType ==1">
+                     *ngIf="user.membershipType == 1">
                 <img class="user-chip-icon" src="https://bungie.net//img/theme/bungienet/icons/psnLogo.png"
                      *ngIf="user.membershipType == 2">
                 <img class="user-chip-icon" src="https://bungie.net//img/theme/destiny/icons/icon_stadia.png"
