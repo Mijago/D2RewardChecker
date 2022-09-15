@@ -15,6 +15,15 @@ export interface CodeInfo {
 
 export const Codes: CodeInfo[] = [
   {
+    name: "Seraphim's Gauntlets",
+    code: "XVX-DKJ-CVM",
+    type: CodeType.EMBLEM,
+    itemHash: 1952218243,
+    collectibleHash: 2056946089,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/518e5957dac0a7470b86aea158abf29c.jpg",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/d535803d7cf7ee6b41476af20ae12bdd.jpg"
+  },
+  {
     name: "Stag's Spirit",
     code: "T67-JXY-PH6",
     type: CodeType.EMBLEM,
