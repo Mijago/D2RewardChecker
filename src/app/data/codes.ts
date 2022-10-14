@@ -1,7 +1,12 @@
 export enum CodeType {
   EMBLEM,
+  TRANSMAT_EFFECT
 }
 
+export const CodeTypeNames = {
+  [CodeType.EMBLEM]: "Emblem",
+  [CodeType.TRANSMAT_EFFECT]: "Transmat Effect",
+}
 
 export interface CodeInfo {
   code: string;
@@ -166,5 +171,14 @@ export const Codes: CodeInfo[] = [
     collectibleHash: 3332781245,
     shortIconUrl: "https://bungie.net/common/destiny2_content/icons/2ec615bc8b933f53bdd26d4e9d46df3c.jpg",
     wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
+  },
+  {
+    name: "End of the Rainbow",
+    code: "R9J-79M-J6C",
+    type: CodeType.TRANSMAT_EFFECT,
+    itemHash: 3549689934 ,
+    collectibleHash: 1009936720,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/7efd5af9453e66abde98884e84507398.jpg",
+    //wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
   },
 ]

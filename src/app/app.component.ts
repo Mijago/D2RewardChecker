@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CodeInfo, Codes} from './data/codes';
+import {CodeInfo, Codes, CodeType, CodeTypeNames} from './data/codes';
 import {FormControl} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {catchError, debounceTime, switchMap, tap} from "rxjs/operators";
@@ -40,6 +40,7 @@ interface ExtCode extends CodeInfo {
 })
 export class AppComponent implements OnInit {
   Codes: ExtCode[] = [];
+  CodeTypeNames = CodeTypeNames;
   guardianSearchFormControl = new FormControl();
   users: GuardianInfo[] = [];
 
@@ -50,6 +51,7 @@ export class AppComponent implements OnInit {
   public loading: boolean = false;
   public usedFallback: boolean = false;
   public unclaimedCodesCount: number = 0;
+  _availableTypes: CodeType[] = [];
 
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router: Router) {
@@ -73,6 +75,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetCodeStates()
+
+    this._availableTypes = Array.from(this.Codes.reduce((p,v) => p.add(v.type), new Set<CodeType>()))
+
 
     this.guardianSearchFormControl.valueChanges.pipe(
       debounceTime(500),
