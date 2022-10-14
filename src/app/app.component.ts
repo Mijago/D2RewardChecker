@@ -59,6 +59,7 @@ export class AppComponent implements OnInit {
 
   updateUnclaimedCodesCount() {
     this.unclaimedCodesCount = this.Codes.filter(c => c.state == State.NotRewarded).length;
+    console.log("updateUnclaimedCodesCount", this.unclaimedCodesCount, {codes: this.Codes}, )
   }
 
   resetCodeStates() {
@@ -219,7 +220,8 @@ export class AppComponent implements OnInit {
       if (k.indexOf(code.collectibleHash.toString()) == -1)
         code.state = State.Unknown;
       else {
-        let existing = (c[code.collectibleHash.toString()].state & 1) == 1;
+        let existing = (c[code.collectibleHash.toString()].state & 1) == 0;
+        console.log(code.name, c[code.collectibleHash.toString()].state, existing)
         if (existing)
           code.state = State.Rewarded;
         else

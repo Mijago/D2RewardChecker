@@ -104,8 +104,8 @@
         >
           <mat-card class="reward-card mat-elevation-z4"
                     [class.state-unknown]="code.state == 0"
-                    [class.state-rewarded]="code.state == 1"
-                    [class.state-not-rewarded]="code.state == 2">
+                    [class.state-rewarded]="code.state == 2"
+                    [class.state-not-rewarded]="code.state == 1">
             <mat-card-header>
               <div mat-card-avatar class="card-icon" style="  background-image: url('{{code.shortIconUrl}}');  "></div>
               <mat-card-title>
@@ -117,8 +117,8 @@
               <mat-card-subtitle (cdkCopyToClipboardCopied)="copied(code.code)" [cdkCopyToClipboard]="code.code"
                                  title="Click to copy this code to your clipboard.">
                 <span class="clipboard-text">{{code.code}}</span>
-                <span *ngIf="code.state == 1">&nbsp;-&nbsp;acquired</span>
-                <span *ngIf="code.state == 2">&nbsp;-&nbsp;not acquired -
+                <span *ngIf="code.state == 2">&nbsp;-&nbsp;acquired</span>
+                <span *ngIf="code.state == 1">&nbsp;-&nbsp;not acquired -
               <a href="https://www.bungie.net/7/en/codes/redeem?token={{code.code}}" target="_blank">Redeem</a>
             </span>
 
@@ -154,7 +154,7 @@
           <mat-card-content>
             <div class="clipboard-text-nopointer" *ngIf="unclaimedCodesCount > 0">
               <ng-container *ngFor="let code of Codes">
-                <ng-container *ngIf="code.state == 2">
+                <ng-container *ngIf="code.state == 1">
                   {{code.code}} - {{code.name}}<br>
                 </ng-container>
               </ng-container>
