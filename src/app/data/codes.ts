@@ -20,6 +20,15 @@ export interface CodeInfo {
 
 export const Codes: CodeInfo[] = [
   {
+    name: "Schrödinger's Gun",
+    code: "9LX-7YC-6TX",
+    type: CodeType.EMBLEM,
+    itemHash: 1868330223,
+    collectibleHash: 1973057929,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/df0cb45f392a4258d8628ebd6da88181.jpg",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/a64b3fe25e6636084442c86f67e0da48.jpg"
+  },
+  {
     name: "Seraphim's Gauntlets",
     code: "XVX-DKJ-CVM",
     type: CodeType.EMBLEM,
