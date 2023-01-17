@@ -182,6 +182,15 @@ export const Codes: CodeInfo[] = [
     wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
   },
   {
+    name: "Jade's Burrow",
+    code: "TNN-DKM-6LG",
+    type: CodeType.EMBLEM,
+    itemHash: 1935440657 ,
+    collectibleHash: 2040168511,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/9f9ad6d0f6bad30767c7e5fb920fc372.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/39cec419f52051154cfac1da606738fc.jpg"
+  },
+  {
     name: "End of the Rainbow",
     code: "R9J-79M-J6C",
     type: CodeType.TRANSMAT_EFFECT,
