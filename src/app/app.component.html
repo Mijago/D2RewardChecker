@@ -128,6 +128,10 @@
             <mat-card-footer *ngIf="code.wideIconUrl">
               <img src="{{code.wideIconUrl}}" class="reward-imag-wide">
             </mat-card-footer>
+
+            <div *ngIf="code.description" class="description mat-elevation-z4">
+              {{code.description}}
+            </div>
           </mat-card>
         </div>
       </ng-container>
