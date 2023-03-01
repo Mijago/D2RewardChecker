@@ -16,6 +16,7 @@ export interface CodeInfo {
   collectibleHash: number;
   shortIconUrl?: string;
   wideIconUrl?: string;
+  description?: string;
 }
 
 export const Codes: CodeInfo[] = [
@@ -189,6 +190,51 @@ export const Codes: CodeInfo[] = [
     collectibleHash: 2040168511,
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/9f9ad6d0f6bad30767c7e5fb920fc372.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/39cec419f52051154cfac1da606738fc.jpg"
+  },
+  {
+    name: "Neon Mirage",
+    code: "YAA-37T-FCN",
+    type: CodeType.EMBLEM,
+    itemHash: 1784442061,
+    collectibleHash: 1822059431,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/fca7d19e0ed53581e1bf25ed2484a0f1.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6673da0f2ce1f0e3685b4cc656b337e5.jpg"
+  },
+  {
+    name: "1784442060",
+    code: "993-H3H-M6K",
+    type: CodeType.EMBLEM,
+    itemHash: 1784442060,
+    collectibleHash: 1822059430,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ce9f7143fdbe5c0e2eee3b507e1c2438.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/66cb185a8665665411bff8b652f45f58.jpg"
+  },
+  {
+    name: "In Urbe Inventa",
+    code: "XVK-RLA-RAM",
+    type: CodeType.EMBLEM,
+    itemHash: 1784442063,
+    collectibleHash: 1822059429,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/0c9a467ea2dda54d0222571e59538a5e.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/e6971d31c8a00c3c85f39acbcb2c9a45.jpg"
+  },
+  {
+    name: "In Vino Mendacium",
+    code: "J6P-9YH-LLP",
+    type: CodeType.EMBLEM,
+    itemHash: 1784442062,
+    collectibleHash: 1822059428,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/925bc50634b9b795d91344ebf605a142.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/0a34ca972c6f9b2721bec974f3d13e1b.jpg"
+  },
+  {
+    name: "Limitless Horizon",
+    code: "XMY-G9M-6XH",
+    type: CodeType.EMBLEM,
+    itemHash: 1952218244,
+    collectibleHash: 2056946094,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/945bf3bab71b1c9d091d762012e083ef.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/8a9d5815bdf5b3a3d27b1ca33eb4dd56.jpg"
   },
   {
     name: "End of the Rainbow",
