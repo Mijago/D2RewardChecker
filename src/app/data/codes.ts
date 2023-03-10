@@ -201,7 +201,7 @@ export const Codes: CodeInfo[] = [
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6673da0f2ce1f0e3685b4cc656b337e5.jpg"
   },
   {
-    name: "1784442060",
+    name: "Visio Spei",
     code: "993-H3H-M6K",
     type: CodeType.EMBLEM,
     itemHash: 1784442060,
