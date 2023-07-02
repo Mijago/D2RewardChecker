@@ -1,10 +1,14 @@
 export enum CodeType {
   EMBLEM,
-  TRANSMAT_EFFECT
+  TRANSMAT_EFFECT,
+  EMOTE,
+  SHADER,
 }
 
 export const CodeTypeNames = {
   [CodeType.EMBLEM]: "Emblem",
+  [CodeType.EMOTE]: "Emote",
+  [CodeType.SHADER]: "SShader",
   [CodeType.TRANSMAT_EFFECT]: "Transmat Effect",
 }
 
@@ -13,7 +17,7 @@ export interface CodeInfo {
   name: string;
   type: CodeType;
   itemHash: number;
-  collectibleHash: number;
+  collectibleHash?: number;
   shortIconUrl?: string;
   wideIconUrl?: string;
   description?: string;
@@ -44,8 +48,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1901885383,
     collectibleHash: 1939502753,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/313b57876840092ef843be204a17a903.jpg",
-    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/10fcff49483946a0653866eefdaa1293.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/1ff1cd2f35be688cde3bec3ae3d1f9bd.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/954e0574ad57bc2bd12d9e3c7e554c19.jpg"
   },
   {
     name: "Be True",
@@ -70,7 +74,7 @@ export const Codes: CodeInfo[] = [
     code: "XFV-KHP-N97",
     type: CodeType.EMBLEM,
     itemHash: 1940590820,
-    collectibleHash: 908813207,
+    collectibleHash: 930889102,
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/73062ecd141e011d45f5a683aacea241.jpg",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/65b4047b1b83aeeeb2e628305071fcea.jpg"
   },
@@ -152,8 +156,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3752071761,
     collectibleHash: 3399891683,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/0f7a13bb8c8b1fff7e282a99d4a1419a.jpg",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/b296588f57aea1d15a04c3db6de98220.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/3cc353d3fab3a877ba62c5861bd18cf6.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ee90bff0c4df778bbb61a854dfaba859.jpg"
   },
   {
     name: "Sneer of the Oni",
@@ -161,8 +165,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3752071762,
     collectibleHash: 3399891680,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/0a336f8bfe9b099add5eb0327ef28b4d.jpg",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/bffe84c0efb9215dbdc8c4890c3e6234.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/0dd066e8afbb3d97aee7cefdeabc4ead.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/287717ef89d9ad0f9154f379e1ea782d.jpg"
   },
   {
     name: "Countdown to Convergence",
@@ -170,8 +174,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3752071767,
     collectibleHash: 3399891685,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/ef506c58e6ceca2d0d1cc2b3e19619cd.png",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/2560de3d4009044b291c6cfb69d11a7f.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/9fea4deffd47ac8131cba15ba00cef51.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/4a2ebdb9819cb8fb98417b1d9218d41c.jpg"
   },
   {
     name: "Heliotrope Warren",
@@ -186,7 +190,7 @@ export const Codes: CodeInfo[] = [
     name: "Jade's Burrow",
     code: "TNN-DKM-6LG",
     type: CodeType.EMBLEM,
-    itemHash: 1935440657 ,
+    itemHash: 1935440657,
     collectibleHash: 2040168511,
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/9f9ad6d0f6bad30767c7e5fb920fc372.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/39cec419f52051154cfac1da606738fc.jpg"
@@ -237,12 +241,52 @@ export const Codes: CodeInfo[] = [
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/8a9d5815bdf5b3a3d27b1ca33eb4dd56.jpg"
   },
   {
+    name: "M:\\>START",
+    code: "JND-HLR-L69",
+    type: CodeType.EMBLEM,
+    itemHash: 4183788700,
+    collectibleHash: 1670619538,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/1156bc74dbea73a4e57de7ff857f7d34.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/2d96bfd781a79915594a81ad5cd98235.jpg"
+  },
+  {
+    name: "Harmonic Commencement",
+    code: "VXN-V3T-MRP",
+    type: CodeType.EMBLEM,
+    itemHash: 4167011119,
+    collectibleHash: 1653841957,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6c156b96fe0b56a8c255b59b362f893b.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/a9d47d875aaa6d968c706892fb6bb784.jpg"
+  },
+  {
+    name: "Airlock Invitation",
+    code: "HN3-7K9-93G",
+    type: CodeType.EMBLEM,
+    itemHash: 1784442048,
+    collectibleHash: 1822059434,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ed2cbbf25272ab04836f09e98f531796.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/af1cba8c7031f0d93951cb5442ce00ba.jpg"
+  },
+  //----------------------------------------
+  {
     name: "End of the Rainbow",
     code: "R9J-79M-J6C",
     type: CodeType.TRANSMAT_EFFECT,
-    itemHash: 3549689934 ,
+    itemHash: 3549689934,
     collectibleHash: 1009936720,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/7efd5af9453e66abde98884e84507398.jpg",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ac741348c625bc6a6efe1bcebda3c48d.jpg",
     //wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
   },
+
+
+  //----------------------------------------
+  {
+    name: "Rainbow Connection",
+    code: "TK7-D3P-FDF",
+    type: CodeType.EMOTE,
+    itemHash: 1063785104,
+    //collectibleHash: null,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6b11266fcdb8e1e8bb8965724e1bfe20.jpg",
+    //wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
+  }
 ]

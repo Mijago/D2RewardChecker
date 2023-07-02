@@ -217,7 +217,7 @@ export class AppComponent implements OnInit {
 
 
     this.Codes.forEach(code => {
-      if (k.indexOf(code.collectibleHash.toString()) == -1)
+      if (!code.collectibleHash ||  k.indexOf(code.collectibleHash.toString()) == -1)
         code.state = State.Unknown;
       else {
         let existing = (c[code.collectibleHash.toString()].state & 1) == 0;
