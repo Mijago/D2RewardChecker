@@ -103,3 +103,15 @@ mat-chip.selected {
 .description {
   padding: 3px;
 }
+
+
+.fab {
+  color: white !important;
+  position: relative;
+  top: -7px;
+
+  .enabled {
+    background-color: #2ec799 !important;
+  }
+
+}

@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
   }
 
   updateUnclaimedCodesCount() {
-    this.unclaimedCodesCount = this.Codes.filter(c => c.state == State.NotRewarded).length;
+    this.unclaimedCodesCount = this.Codes.filter(c => c.state != State.Rewarded).length;
     console.log("updateUnclaimedCodesCount", this.unclaimedCodesCount, {codes: this.Codes}, )
   }
 
@@ -76,6 +76,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetCodeStates()
+    this.updateUnclaimedCodesCount();
 
     this._availableTypes = Array.from(this.Codes.reduce((p,v) => p.add(v.type), new Set<CodeType>()))
 
@@ -120,6 +121,7 @@ export class AppComponent implements OnInit {
           if (this.router.url != "/")
             await this.resetUrl();
           this.resetCodeStates();
+          this.updateUnclaimedCodesCount();
         }
 
       }
