@@ -226,9 +226,7 @@ export class AppComponent implements OnInit {
 
 
     this.Codes.forEach(code => {
-      if (!code.collectibleHash || k.indexOf(code.collectibleHash.toString()) == -1)
-        code.state = State.Unknown;
-      else {
+      if (code.collectibleHash && k.indexOf(code.collectibleHash.toString()) != -1) {
         let existing = (c[code.collectibleHash.toString()].state & 1) == 0;
         console.log(code.name, c[code.collectibleHash.toString()].state, existing)
         if (existing)
