@@ -22,6 +22,12 @@ interface GuardianInfo {
 
 }
 
+interface DestinyItemPlugBase {
+  plugItemHash: number;
+  canInsert: boolean;
+  enabled: boolean;
+}
+
 enum State {
   Unknown,
   NotRewarded,
@@ -273,13 +279,13 @@ export class AppComponent implements OnInit {
     }
 
     var c = result.Response.profilePlugSets.data.plugs[2860926541]; // emote plugSet
-    var kv = new Map(c.map(plug => [plug.plugItemHash, plug]));
+    var kv = new Map(c.map((plug: DestinyItemPlugBase) => [plug.plugItemHash, plug]));
 
     this.Codes.forEach(code => {
       if (!code.collectibleHash) {  // skip any with collectibleHash as those would not be in plugSets
-        let plug = kv.get(code.itemHash);
-        let existing = plug && plug.canInsert && plug.enable;
-        console.log(code.name, plug?.canInsert, plug?.enable);
+        let plug = kv.get(code.itemHash) as DestinyItemPlugBase;
+        let existing = plug && plug.canInsert && plug.enabled;
+        console.log(code.name, plug?.canInsert, plug?.enabled);
         if (existing)
           code.state = State.Rewarded;
         else
