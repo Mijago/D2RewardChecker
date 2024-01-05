@@ -199,6 +199,10 @@ export class AppComponent implements OnInit {
   }
 
   async filterCollectibles(membershipType: number, membershipId: number) {
+    if (this.Codes.every(code => !code.collectibleHash)) {
+      // skip the collectibles check if no codes have collectibleHash
+      return;
+    }
     this.loading = true;
     this.errorMessage = "";
 
