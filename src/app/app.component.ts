@@ -22,6 +22,12 @@ interface GuardianInfo {
 
 }
 
+interface DestinyItemPlugBase {
+  plugItemHash: number;
+  canInsert: boolean;
+  enabled: boolean;
+}
+
 enum State {
   Unknown,
   NotRewarded,
@@ -115,7 +121,9 @@ export class AppComponent implements OnInit {
             })
           }
 
+          this.resetCodeStates();
           this.filterCollectibles(membershipType, membershipId);
+          this.filterProfilePlugSets(membershipType, membershipId);
         } else {
           this.users = []
           if (this.router.url != "/")
@@ -191,9 +199,12 @@ export class AppComponent implements OnInit {
   }
 
   async filterCollectibles(membershipType: number, membershipId: number) {
+    if (this.Codes.every(code => !code.collectibleHash)) {
+      // skip the collectibles check if no codes have collectibleHash
+      return;
+    }
     this.loading = true;
     this.errorMessage = "";
-    this.resetCodeStates();
 
     this.currentUserMembershipId = membershipId;
     const url = `https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/?components=800`;
@@ -219,9 +230,7 @@ export class AppComponent implements OnInit {
 
 
     this.Codes.forEach(code => {
-      if (!code.collectibleHash ||  k.indexOf(code.collectibleHash.toString()) == -1)
-        code.state = State.Unknown;
-      else {
+      if (code.collectibleHash && k.indexOf(code.collectibleHash.toString()) != -1) {
         let existing = (c[code.collectibleHash.toString()].state & 1) == 0;
         console.log(code.name, c[code.collectibleHash.toString()].state, existing)
         if (existing)
@@ -229,7 +238,62 @@ export class AppComponent implements OnInit {
         else
           code.state = State.NotRewarded;
       }
-    })
+    });
+    /*
+    this.Codes.sort((a,b) => {
+      if (a.state > b.state)
+        return -1;
+      if (a.state < b.state)
+        return 1;
+      if (a.name < b.name)
+        return -1;
+      else return 1;
+    })*/
+    this.updateUnclaimedCodesCount();
+    this.loading = false;
+  }
+
+  async filterProfilePlugSets(membershipType: number, membershipId: number) {
+    if (this.Codes.every(code => code.collectibleHash)) {
+      // skip the plugSet check if all codes have collectibleHash
+      return;
+    }
+    this.loading = true;
+    this.errorMessage = "";
+
+    this.currentUserMembershipId = membershipId;
+    const url = `https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/?components=305`;
+    const result = await this.http.get<any>(url, {
+      headers: {"X-API-Key": "d740f7aa26874fd59aa0a09ce0c47fd6"}
+    }).pipe(
+      tap(_ => console.log('fetched plugSets')),
+      catchError(e => this.handleError(e))
+    ).toPromise();
+    if (!result) {
+      this.loading = false;
+      return;
+    }
+
+    if (!result.Response.profilePlugSets.data) {
+      this.errorMessage = "The API did not return any profilePlugSets for this account. Privacy setting?";
+      this.loading = false;
+      return;
+    }
+
+    var c = result.Response.profilePlugSets.data.plugs[2860926541]; // emote plugSet
+    var kv = new Map(c.map((plug: DestinyItemPlugBase) => [plug.plugItemHash, plug]));
+
+    this.Codes.forEach(code => {
+      if (!code.collectibleHash) {  // skip any with collectibleHash as those would not be in plugSets
+        let plug = kv.get(code.itemHash) as DestinyItemPlugBase;
+        let existing = plug && plug.canInsert && plug.enabled;
+        console.log(code.name, plug?.canInsert, plug?.enabled);
+        if (existing)
+          code.state = State.Rewarded;
+        else
+          code.state = State.NotRewarded;
+      }
+    });
     /*
     this.Codes.sort((a,b) => {
       if (a.state > b.state)
