@@ -8,7 +8,7 @@ export enum CodeType {
 export const CodeTypeNames = {
   [CodeType.EMBLEM]: "Emblem",
   [CodeType.EMOTE]: "Emote",
-  [CodeType.SHADER]: "SShader",
+  [CodeType.SHADER]: "Shader",
   [CodeType.TRANSMAT_EFFECT]: "Transmat Effect",
 }
 
@@ -39,7 +39,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1952218243,
     collectibleHash: 2056946089,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/518e5957dac0a7470b86aea158abf29c.jpg",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/c352217bb8029ea50bd2ef49845cc074.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/d535803d7cf7ee6b41476af20ae12bdd.jpg"
   },
   {
@@ -57,7 +57,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3903070392,
     collectibleHash: 3215337910,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/775aba88c3235c8a38d68ec69f1f810c.jpg",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/b487900f5f0918625af7e5bb4645e8fa.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/a6d9b66f124b25ac73969ebe4bc45b90.jpg"
   },
   {
@@ -66,7 +66,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3970180840,
     collectibleHash: 3282448382,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/7bde78ef4c5aefd0cfdb01b9f1366501.jpg",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/a4c0f330026450eafe1cbfd75c7e4b71.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/adaf0e2c15610cdfff750725701222ec.jpg"
   },
   {
@@ -74,8 +74,8 @@ export const Codes: CodeInfo[] = [
     code: "XFV-KHP-N97",
     type: CodeType.EMBLEM,
     itemHash: 1940590820,
-    collectibleHash: 908813207,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/73062ecd141e011d45f5a683aacea241.jpg",
+    collectibleHash: 930889102,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/b54f2fb824a49c934740620cba653720.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/65b4047b1b83aeeeb2e628305071fcea.jpg"
   },
   {
@@ -84,7 +84,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3919847960,
     collectibleHash: 3232115498,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/e0d1cde8ffe0012424afa6b352b9954d.jpg",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/e0d1cde8ffe0012424afa6b352b9954d.jpg",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/01e9b3863c14f9149ff4035b896ad5ed.jpg"
   },
   {
@@ -93,8 +93,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 2962058745,
     collectibleHash: 4137754755,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/5e464d751c38781067f43a4d9d3da37b.png",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/6719dde48dca592addb4102cb747e097.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/5e464d751c38781067f43a4d9d3da37b.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6719dde48dca592addb4102cb747e097.jpg"
   },
   {
     name: "Galilean Excursion",
@@ -102,8 +102,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3903070392,
     collectibleHash: 4137754753,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/a9d3db19c2e2d9bf4bae84c9cb51f6ab.png",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/3e99d575d00fb307c15fb5513dee13c6.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/a9d3db19c2e2d9bf4bae84c9cb51f6ab.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/3e99d575d00fb307c15fb5513dee13c6.jpg"
   },
   {
     name: "Future in Shadow",
@@ -111,17 +111,17 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 2962058746,
     collectibleHash: 4137754752,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/4be0d9062b1114f73ced6a051ce26c8a.jpg",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/dd9af60ef15319ee986a1f6cc029fe71.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/4816028ef485f05c41d23059f1744d73.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/dd9af60ef15319ee986a1f6cc029fe71.jpg"
   },
   {
-    name: "Cоняшник",
+    name: "соняшник",
     code: "JVG-VNT-GGG",
     type: CodeType.EMBLEM,
-    itemHash: 0, //TODO
-    collectibleHash: 0,//TODO
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/538d64b6a6c074f7426f515200dba835.jpg",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/4c113db5e1c0296027a1c7e1f84fb8b3.jpg"
+    itemHash: 1968995963,
+    collectibleHash: 2006613205,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/b2b14c6f88521e2df4d9f87305f4728c.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/4c113db5e1c0296027a1c7e1f84fb8b3.jpg"
   },
   {
     name: "Crushed Gamma",
@@ -129,8 +129,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1901885382,
     collectibleHash: 1939502752,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/3cf8e1c3d18f4a3929da57fc58aa9c0a.jpg",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/74ebb19b261148e4a212eae3ac3b7ccb.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/275a8343dd06a0552b7422883bce5be4.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/74ebb19b261148e4a212eae3ac3b7ccb.jpg"
   },
   {
     name: "Liminal Nadir",
@@ -138,8 +138,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3752071760,
     collectibleHash: 3399891682,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/0085555996cf066703d7e586224233bb.jpg",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/4f9f612716a973ff03e5e17e9d7e7c91.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/e61e97052c0a5e702f2e16f1505b1596.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/4f9f612716a973ff03e5e17e9d7e7c91.jpg"
   },
   {
     name: "Tangled Web",
@@ -147,8 +147,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3986958428,
     collectibleHash: 3299225966,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/348c85451ba862c5bbdad0b34dbc5819.jpg",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/93a14eab2b1633d7affbf815d42af337.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/81030b0924e8783c148ad22ccb033d85.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/93a14eab2b1633d7affbf815d42af337.jpg"
   },
   {
     name: "Shadow's Light",
@@ -183,8 +183,8 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3953403263,
     collectibleHash: 3332781245,
-    shortIconUrl: "https://bungie.net/common/destiny2_content/icons/2ec615bc8b933f53bdd26d4e9d46df3c.jpg",
-    wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/64251b23d68d05f9130b838305cf3231.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
   },
   {
     name: "Jade's Burrow",
@@ -267,28 +267,6 @@ export const Codes: CodeInfo[] = [
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ed2cbbf25272ab04836f09e98f531796.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/af1cba8c7031f0d93951cb5442ce00ba.jpg"
   },
-  //----------------------------------------
-  {
-    name: "End of the Rainbow",
-    code: "R9J-79M-J6C",
-    type: CodeType.TRANSMAT_EFFECT,
-    itemHash: 3549689934,
-    collectibleHash: 1009936720,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ac741348c625bc6a6efe1bcebda3c48d.jpg",
-    //wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
-  },
-
-
-  //----------------------------------------
-  {
-    name: "Rainbow Connection",
-    code: "TK7-D3P-FDF",
-    type: CodeType.EMOTE,
-    itemHash: 1063785104,
-    //collectibleHash: null,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6b11266fcdb8e1e8bb8965724e1bfe20.jpg",
-    //wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
-  },
   {
     name: "Bulbul Tarang",
     code: "A67-C7X-3GN",
@@ -369,5 +347,25 @@ export const Codes: CodeInfo[] = [
     collectibleHash: 802420307     ,
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/d7d253ed33691134f414e21c29860beb.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/317d1b544bcccf7ea2002e064243475f.jpg"
+  },
+
+  // TRANSMATS -------------------
+  {
+    name: "End of the Rainbow",
+    code: "R9J-79M-J6C",
+    type: CodeType.TRANSMAT_EFFECT,
+    itemHash: 3549689934,
+    collectibleHash: 1009936720,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ac741348c625bc6a6efe1bcebda3c48d.jpg",
+  },
+
+
+  // EMOTES -----------------------
+  {
+    name: "Rainbow Connection",
+    code: "TK7-D3P-FDF",
+    type: CodeType.EMOTE,
+    itemHash: 1063785104,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6b11266fcdb8e1e8bb8965724e1bfe20.jpg",
   },
 ]
