@@ -46,8 +46,8 @@ export const Codes: CodeInfo[] = [
     name: "Stag's Spirit",
     code: "T67-JXY-PH6",
     type: CodeType.EMBLEM,
-    itemHash: 1901885383,
-    collectibleHash: 1939502753,
+    itemHash: 3903070392,
+    collectibleHash: 1939502753 ,
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/1ff1cd2f35be688cde3bec3ae3d1f9bd.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/954e0574ad57bc2bd12d9e3c7e554c19.jpg"
   },
@@ -74,7 +74,7 @@ export const Codes: CodeInfo[] = [
     code: "XFV-KHP-N97",
     type: CodeType.EMBLEM,
     itemHash: 1940590820,
-    collectibleHash: 930889102,
+    collectibleHash: 908813207,
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/73062ecd141e011d45f5a683aacea241.jpg",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/65b4047b1b83aeeeb2e628305071fcea.jpg"
   },
@@ -100,7 +100,7 @@ export const Codes: CodeInfo[] = [
     name: "Galilean Excursion",
     code: "JYN-JAA-Y7D",
     type: CodeType.EMBLEM,
-    itemHash: 2962058747,
+    itemHash: 3903070392,
     collectibleHash: 4137754753,
     shortIconUrl: "https://bungie.net/common/destiny2_content/icons/a9d3db19c2e2d9bf4bae84c9cb51f6ab.png",
     wideIconUrl: "https://bungie.net/common/destiny2_content/icons/3e99d575d00fb307c15fb5513dee13c6.jpg"
@@ -118,8 +118,8 @@ export const Codes: CodeInfo[] = [
     name: "Cоняшник",
     code: "JVG-VNT-GGG",
     type: CodeType.EMBLEM,
-    itemHash: 1968995963,
-    collectibleHash: 2006613205,
+    itemHash: 0, //TODO
+    collectibleHash: 0,//TODO
     shortIconUrl: "https://bungie.net/common/destiny2_content/icons/538d64b6a6c074f7426f515200dba835.jpg",
     wideIconUrl: "https://bungie.net/common/destiny2_content/icons/4c113db5e1c0296027a1c7e1f84fb8b3.jpg"
   },
@@ -156,7 +156,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3752071761,
     collectibleHash: 3399891683,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/3cc353d3fab3a877ba62c5861bd18cf6.png",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/0f7a13bb8c8b1fff7e282a99d4a1419a.jpg",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ee90bff0c4df778bbb61a854dfaba859.jpg"
   },
   {
@@ -165,7 +165,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 3752071762,
     collectibleHash: 3399891680,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/0dd066e8afbb3d97aee7cefdeabc4ead.png",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/0a336f8bfe9b099add5eb0327ef28b4d.jpg",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/287717ef89d9ad0f9154f379e1ea782d.jpg"
   },
   {
@@ -288,5 +288,86 @@ export const Codes: CodeInfo[] = [
     //collectibleHash: null,
     shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6b11266fcdb8e1e8bb8965724e1bfe20.jpg",
     //wideIconUrl: "https://bungie.net/common/destiny2_content/icons/385c302dc22e6dafb8b50c253486d040.jpg"
-  }
+  },
+  {
+    name: "Bulbul Tarang",
+    code: "A67-C7X-3GN",
+    type: CodeType.EMBLEM,
+    itemHash: 3903070390,
+    collectibleHash: 3215337912 ,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/25ca12d5d16569a39abd13e2e656e743.jpg",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/bb6b2a1723b35df8ebbdb03710e8e8bd.jpg"
+  },
+  {
+    name: "Risen",
+    code: "THR-33A-YKC",
+    type: CodeType.EMBLEM,
+    itemHash: 4133455812,
+    collectibleHash: 1687397126,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/1ae0427c82b6e344a3597c842ee514fd.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6cd753e92bafa4fc88845e581ff12ed6.jpg"
+  },
+  {
+    name: "Folding Space",
+    code: "3J9-AMM-7MG",
+    type: CodeType.EMBLEM,
+    itemHash: 4183788697,
+    collectibleHash: 1670619543,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/e2966c4e4ffc719dfe271123d61edca7.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/3fa44eef23119695edfc1afebeecc3c8.jpg"
+  },
+  {
+    name: "Archived",
+    code: "PTD-GKG-CVN",
+    type: CodeType.EMBLEM,
+    itemHash: 4183788696,
+    collectibleHash: 1670619543,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/896d1e6d0086bb18831759cfc3e5c9bc.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/c315fba634d2e8545174aa3327e9e178.jpg"
+  },
+  {
+    name: "Gone Home",
+    code: "3CV-D6K-RD4",
+    type: CodeType.EMBLEM,
+    itemHash: 4183788699,
+    collectibleHash: 1670619541 ,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/907087d1718bfc344b6d7627a147b47c.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/548200a01538d34615dfafc19e02a523.jpg"
+  },
+  {
+    name: "Myopia",
+    code: "FMM-44A-RKP",
+    type: CodeType.EMBLEM,
+    itemHash: 4183788698,
+    collectibleHash: 1670619540  ,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/94919cc4562d743f8f7e6725f3304b77.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/e78878266122a93803897202dc6874eb.jpg"
+  },
+  {
+    name: "Out the Airlock",
+    code: "L3P-XXR-GJ4",
+    type: CodeType.EMBLEM,
+    itemHash: 2790542799,
+    collectibleHash: 802420309   ,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/d1b4d8a3dd584645ce0a3275c9f7c9eb.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/612eea3b484a6068de668cec76f0a68b.jpg"
+  },
+  {
+    name: "Adventurous Spirit",
+    code: "9FY-KDD-PRT",
+    type: CodeType.EMBLEM,
+    itemHash: 4116678224,
+    collectibleHash: 1737730014    ,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/be871eff2f3350a801ff995faf209a5f.jpg",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/9fc87194709d4f0eb67b2c7fdaf89d56.jpg"
+  },
+  {
+    name: "Tigris Fati",
+    code: "6AJ-XFR-9ND",
+    type: CodeType.EMBLEM,
+    itemHash: 2790542793,
+    collectibleHash: 802420307     ,
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/d7d253ed33691134f414e21c29860beb.png",
+    wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/317d1b544bcccf7ea2002e064243475f.jpg"
+  },
 ]
