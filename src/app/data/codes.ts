@@ -192,7 +192,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1935440657,
     collectibleHash: 2040168511,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/9f9ad6d0f6bad30767c7e5fb920fc372.png",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/b8ee2b71632b661aadd994b4d31821b1.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/39cec419f52051154cfac1da606738fc.jpg"
   },
   {
@@ -201,7 +201,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1784442061,
     collectibleHash: 1822059431,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/fca7d19e0ed53581e1bf25ed2484a0f1.png",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/f50185eb32bcd57b139580910ecb148b.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6673da0f2ce1f0e3685b4cc656b337e5.jpg"
   },
   {
@@ -210,7 +210,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1784442060,
     collectibleHash: 1822059430,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ce9f7143fdbe5c0e2eee3b507e1c2438.png",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/b382525235eab61de1b5b974bc299cec.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/66cb185a8665665411bff8b652f45f58.jpg"
   },
   {
@@ -219,7 +219,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1784442063,
     collectibleHash: 1822059429,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/0c9a467ea2dda54d0222571e59538a5e.png",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/be8541f82e6bdb9f50de7beac94f0271.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/e6971d31c8a00c3c85f39acbcb2c9a45.jpg"
   },
   {
@@ -228,7 +228,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1784442062,
     collectibleHash: 1822059428,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/925bc50634b9b795d91344ebf605a142.png",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/6769e8757272ab0b1f32550b7c3baa4e.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/0a34ca972c6f9b2721bec974f3d13e1b.jpg"
   },
   {
@@ -237,7 +237,7 @@ export const Codes: CodeInfo[] = [
     type: CodeType.EMBLEM,
     itemHash: 1952218244,
     collectibleHash: 2056946094,
-    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/945bf3bab71b1c9d091d762012e083ef.png",
+    shortIconUrl: "https://www.bungie.net/common/destiny2_content/icons/e3c70a21d2c0025cfe28c99c812e2e1d.png",
     wideIconUrl: "https://www.bungie.net/common/destiny2_content/icons/8a9d5815bdf5b3a3d27b1ca33eb4dd56.jpg"
   },
   {
